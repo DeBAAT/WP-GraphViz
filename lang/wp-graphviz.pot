@@ -1,0 +1,60 @@
+# Copyright (C) 2013 WP_Graphviz
+# This file is distributed under the same license as the WP_Graphviz package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP_Graphviz 0.1.0\n"
+"Report-Msgid-Bugs-To: http://www.de-baat.nl/WP_Graphviz\n"
+"POT-Creation-Date: 2013-08-21 10:56+0100\n"
+"PO-Revision-Date: 2013-08-21 10:56+0100\n"
+"Last-Translator: De B.A.A.T. <De_BAAT@de-baat.nl>\n"
+"Language-Team: Jan de Baat <WP_GraphViz@de-baat.nl>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
+"esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: classes/class-wp-graphviz-plugin.php:316
+#, fuzzy
+msgid "General Settings"
+msgstr "Algemene Instellingen"
+
+#, fuzzy
+#~ msgid "Post tags"
+#~ msgstr "Tags toevoegen"
+
+#, fuzzy
+#~ msgid "Posts"
+#~ msgstr "Berichten"
+
+#, fuzzy
+#~ msgid "Change selection"
+#~ msgstr "Selectie bijsnijden"
+
+#, fuzzy
+#~ msgid "WP GraphViz: Options"
+#~ msgstr "Tekst schermopties:"
+
+#, fuzzy
+#~ msgid "WP GraphViz"
+#~ msgstr "WP_Screen API"
+
+#, fuzzy
+#~ msgid "Options saved"
+#~ msgstr "Opties opgeslagen."
+
+#, fuzzy
+#~ msgid "Features"
+#~ msgstr "Functies"
+
+#, fuzzy
+#~ msgid "Tag cloud"
+#~ msgstr "Tag Cloud"
+
+#~ msgid "BigData"
+#~ msgstr "BigData"

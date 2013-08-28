@@ -1,0 +1,135 @@
+/* This stylesheet is used to style the admin option form of the plugin. */
+
+/* WP_GraphViz Custom */
+ div .icon32.icon-post,#icon-wp-graphviz
+ {
+    background: url("../assets/icon-wp-graphviz.png") no-repeat scroll transparent;
+}
+
+
+/***************************
+ * Tables
+ */
+ div.wrap table.wp-graphviz.widefat thead tr th {
+    background: #404040; /* for non-css3 browsers */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#808080', endColorstr=' #404040'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#808080), to( #404040)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #808080,   #404040); /* for firefox 3.6+ */
+    background-image: -moz-linear-gradient(center top , #808080, #404040);
+    text-decoration: none;
+	font-size: 14px;
+ }
+ div.wrap table.wp-graphviz.widefat thead tr th,
+ div.wrap table.wp-graphviz.widefat thead tr th a 
+ {
+    color: #EEEEFF;
+    text-decoration: none;    
+    text-shadow: none;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: "Trebuchet MS", Helvetica, sans-serif; 
+ }
+ div.wrap table.wp-graphviz.widefat thead tr th a {
+    color: #9999FF;
+    text-decoration: underline;
+ }
+ div.wrap table.wp-graphviz.widefat thead tr th input.button {
+     vertical-align: middle;
+ }
+ input.disabled {
+    background: none repeat scroll 0 0 #FEFEFE;
+    border: 1px solid #DDDDDD;
+    color: #888888;     
+ }
+ tr td.slp_locationinfoform_cell {
+     border: 3px dashed #999999;
+ }
+ span.slp-edit-location-id {
+     display: inline-block;
+     margin: 24px 3px;
+     width: 100%;
+     
+     color: #B4B4B4;
+     font-size: 1.5em;
+ }
+div#wp_graphviz_table_wrapper {
+	border: 1px solid #CCCCCC;
+	margin: -1px 0 0;
+	padding: 0px;
+}
+
+/***************************
+ * Locations: Manage
+ */
+td.wp_graphviz_shortcodes_cell {
+    display: table-cell;
+    word-wrap: break-word;
+    word-break: keep-all;
+}
+tr.wp_graphviz_shortcodes_row.even {
+    background-color: #FFFFFF;
+}
+tr.wp_graphviz_shortcodes_row.even:hover {
+    background-color: #FFFFCC;
+}
+tr.wp_graphviz_shortcodes_row.odd {
+    background-color: #DDDDDD;
+}
+tr.wp_graphviz_shortcodes_row.odd:hover {
+    background-color: #FFFF99;
+}
+tr.wp_graphviz_shortcodes_row.invalid {
+    background-color: #FFCCCC;
+}
+tr.wp_graphviz_shortcodes_row.invalid:hover {
+    background-color: #FFDDDD;
+}
+#wp_graphviz_shortcodes_table {
+   margin: 0px;
+   padding: 0px;
+}
+#wp_graphviz_shortcodes_table th {
+    vertical-align: top;
+}
+#wp_graphviz_shortcodes_table th.thnowrap {
+    white-space: nowrap;
+}
+
+/***************************
+ * Settings: General
+ **/
+
+#wpcontent .csl_select, #wpcontent .csl_option
+{
+    padding-right: 6px;
+}
+ 
+.tableRowHeader,.tableRowHeader td,.tableRowHeader th 
+{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.tableRowHeader  td a,.tableRowHeader  th a,.widefat thead td a,.widefat thead th a
+{
+    color: #00aa00;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.widefat,.widefat thead td a,.widefat thead th a,.widefat td,.widefat th
+{
+	font-size: 12px;
+	border: none;
+}
+
+.widefat td td, .widefat td, .widefat th {
+	border-bottom: none;
+}
+
+.widefat thead,.widefat thead tr {
+	background-color: #464646;
+	background-image: none;
+	color: white;
+}

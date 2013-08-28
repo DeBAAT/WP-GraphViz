@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP-GraphViz v0.1.0\n"
+"Report-Msgid-Bugs-To: http://www.de-baat.nl/WP_Graphviz\n"
+"POT-Creation-Date: 2013-08-24 11:37+0100\n"
+"PO-Revision-Date: 2013-08-28 16:54:41+0000\n"
+"Last-Translator: De BAAT <De_BAAT@de-baat.nl>\n"
+"Language-Team: De B.A.A.T. <WP_GraphViz@de-baat.nl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: classes/class-wp-graphviz-plugin.php:263
+#: classes/class-wp-graphviz-plugin.php:319
+#@ wp-graphviz
+msgid "General Settings"
+msgstr "Algemene Instellingen"
+
+#: classes/class-wp-graphviz-plugin.php:326
+#@ wp-graphviz
+msgid "WP GraphViz ID"
+msgstr "WP GraphViz ID"
+
+#: classes/class-wp-graphviz-plugin.php:335
+#@ wp-graphviz
+msgid "WP GraphViz Title"
+msgstr "WP GraphViz Titel"
+
+#: classes/class-wp-graphviz-shortcodes - kopie.php:101
+#: classes/class-wp-graphviz-shortcodes.php:102
+#@ wp-graphviz
+msgid "The basic shortcode to render a graph specified in the DOT language."
+msgstr "De basis shortcode die gebruikt kan worden om een graph te tekenen die gespecificeerd is in de DOT taal."
+
+#: classes/class-wp-graphviz-shortcodes - kopie.php:107
+#: classes/class-wp-graphviz-shortcodes.php:114
+#@ wp-graphviz
+msgid "The shortcode to render a file containing the graph specified in the DOT language."
+msgstr "De shortcode om een bestand te tekenen die een specificatie van een graph bevat in de DOT taal."
+
+#: classes/class-wp-graphviz-shortcodes.php:30
+#@ wp-graphviz
+msgid "WP GraphViz Shortcodes"
+msgstr "WP GraphViz Shortcodes"
+
+#: classes/class-wp-graphviz-shortcodes.php:137
+#@ wp-graphviz
+msgid "Welcome to WP GraphViz Shortcodes"
+msgstr "Welkom bij de WP GraphViz Shortcodes"
+
+#: classes/class-wp-graphviz-shortcodes.php:141
+#@ wp-graphviz
+msgid "Your Settings have been saved."
+msgstr "Uw Instellingen zijn opgeslagen."
+
+#: classes/class-wp-graphviz-shortcodes.php:146
+#@ wp-graphviz
+msgid "This page shows the shortcodes provided by the WP GraphViz plugin:"
+msgstr "Deze pagina toont de shortcodes die geleverd worden door deze WP GraphViz plug-in:"
+
+#: classes/class-wp-graphviz-shortcodes.php:175
+#, php-format
+#@ wp-graphviz
+msgid "For usage information see <a href=\"%s\">here</a>."
+msgstr "Voor informatie over het gebruik kijk <a href=\"%s\">hier</a>."
+
+#: classes/class-wp-graphviz-shortcodes.php:180
+#@ wp-graphviz
+msgid "Shortcode Settings"
+msgstr "Shortcode Instellingen"
+
+#: classes/class-wp-graphviz-shortcodes.php:182
+#@ wp-graphviz
+msgid "Ad Hoc Widgets"
+msgstr "Ad Hoc Widgets"
+
+#: classes/class-wp-graphviz-shortcodes.php:108
+#@ wp-graphviz
+msgid "The extended shortcode to render a graph specified in the DOT language."
+msgstr "De uitgebreide shortcode om een graph te renderen die gespecificeerd is in de DOT taal."
+
+#. translators: plugin header field 'Name'
+#: wp-graphviz.php:0
+#@ wp-graphviz
+msgid "WP-GraphViz"
+msgstr "WP-GraphViz"
+
+#. translators: plugin header field 'PluginURI'
+#: wp-graphviz.php:0
+#@ wp-graphviz
+msgid "TODO"
+msgstr "NOG TE DOEN"
+
+#. translators: plugin header field 'Description'
+#: wp-graphviz.php:0
+#@ wp-graphviz
+msgid "A plugin to provide GraphViz functionality for WordPress sites"
+msgstr "Een plug-in die GraphViz functionaliteit biedt voor WordPress sites."
+
+#. translators: plugin header field 'Author'
+#: wp-graphviz.php:0
+#@ wp-graphviz
+msgid "Jan de Baat"
+msgstr "Jan de Baat"
+
+#. translators: plugin header field 'AuthorURI'
+#: wp-graphviz.php:0
+#@ wp-graphviz
+msgid "http://www.de-baat.nl/WP_Graphviz"
+msgstr "http://www.de-baat.nl/WP_Graphviz"
+
+#. translators: plugin header field 'Version'
+#: wp-graphviz.php:0
+#@ wp-graphviz
+msgid "0.1.0"
+msgstr "0.1.0"
+

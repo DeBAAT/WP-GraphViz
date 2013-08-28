@@ -77,7 +77,6 @@ class WP_GraphViz_Plugin {
 		$this->capability = 'edit_theme_options';
 		$this->menu_slug = 'wp-graphviz';
 		$this->plugin_icon = WP_GRAPHVIZ_URL . '/assets/icon-wp-graphviz-18.png';
-		$this->plugin_icon = WP_GRAPHVIZ_URL . '/assets/lightbulb.png';
 
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'wpg_init' ) );
@@ -94,17 +93,6 @@ class WP_GraphViz_Plugin {
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-
-		// Define custom functionality. Read more about actions and filters: http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
-		add_action( 'TODO', array( $this, 'action_method_name' ) );
-		add_filter( 'TODO', array( $this, 'filter_method_name' ) );
-
-		
-		// Admin and XML-RPC
-		//if ( is_admin() ) {
-		//	require( WP_GRAPHVIZ_DIR . '/classes/class.admin.php' );
-		//	new WP_GraphViz_Admin();
-		//}
 		
 	}
 
@@ -133,7 +121,7 @@ class WP_GraphViz_Plugin {
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is disabled or plugin is activated on an individual blog.
 	 */
 	public static function activate( $network_wide ) {
-		// TODO: Define activation functionality here
+		// No activation functionality needed
 	}
 
 	/**
@@ -144,7 +132,7 @@ class WP_GraphViz_Plugin {
 	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is disabled or plugin is deactivated on an individual blog.
 	 */
 	public static function deactivate( $network_wide ) {
-		// TODO: Define deactivation functionality here
+		// No deactivation functionality needed
 	}
 
 	/**
@@ -179,9 +167,7 @@ class WP_GraphViz_Plugin {
 	 * @return    null    Return early if no settings page is registered.
 	 */
 	public function enqueue_admin_scripts() {
-
-		wp_enqueue_script( $this->plugin_slug . '-admin-script', WP_GRAPHVIZ_URL . '/js/admin.js', array( 'jquery' ), $this->version );
-
+		// No admin scripts needed
 	}
 
 	/**
@@ -190,7 +176,7 @@ class WP_GraphViz_Plugin {
 	 * @since    0.1.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', WP_GRAPHVIZ_URL . '/css/public.css', array(), $this->version );
+		// No public css needed
 	}
 
 	/**
@@ -199,40 +185,12 @@ class WP_GraphViz_Plugin {
 	 * @since    0.1.0
 	 */
 	public function enqueue_scripts() {
-		//wp_enqueue_script( $this->plugin_slug . '-plugin-script', WP_GRAPHVIZ_URL . '/js/public.js', array( 'jquery' ), $this->version );
 		wp_enqueue_script( $this->plugin_slug . '-viz-public-script', WP_GRAPHVIZ_URL . '/js/viz-public.js', false, $this->version );
 		wp_enqueue_script( $this->plugin_slug . '-viz-script', WP_GRAPHVIZ_URL . '/js/viz.js', false, $this->version );
 	}
 
 	public function print_general_section_info(){
-		print 'Enter your general setting below:';
-	}
-
-	public function create_wp_graphviz_id_field(){
-		$wp_graphviz_id = wpg_get_option('wp_graphviz_id');
-		?><input type="text" id="input_wp_graphviz_id" name="wp_graphviz_options[wp_graphviz_id]" value="<?php echo $wp_graphviz_id; ?>" /><?php
-	}
-
-	public function create_wp_graphviz_title_field(){
-		$wp_graphviz_options = get_option('wp_graphviz_options');
-		$wp_graphviz_title = $wp_graphviz_options['wp_graphviz_title'];
-		?><input type="text" id="input_wp_graphviz_title" name="wp_graphviz_options[wp_graphviz_title]" value="<?php echo $wp_graphviz_title; ?>" /><?php
-	}
-
-	function check_wp_graphviz_option($input) {
-
-		$newinput = array();
-	
-		// Check value of wp_graphviz_id
-		$newinput['wp_graphviz_id'] = trim($input['wp_graphviz_id']);
-		if ( !is_numeric( $newinput['wp_graphviz_id'] ) ) {
-			$newinput['wp_graphviz_id'] = '';
-		}
-	
-		// Check value of wp_graphviz_title
-		$newinput['wp_graphviz_title'] = trim($input['wp_graphviz_title']);
-
-		return $newinput;
+		print __('Enter your general settings below:', WPG_PLUGIN);
 	}
 
 	/**
@@ -241,68 +199,75 @@ class WP_GraphViz_Plugin {
 	 * @since    0.1.0
 	 */
 	public function add_plugin_admin_menu() {
+		$this->debugMP('msg','WP GraphViz Admin page add_plugin_admin_menu','Count(menuItems)=' . '...',__FILE__,__LINE__);
 
         if (current_user_can($this->capability)) {
 			do_action('wpg_admin_menu_starting');
 
-            // The main hook for the menu
-            //
-            add_menu_page(
-                $this->page_title,
-                $this->menu_title,
-                $this->capability,
-                $this->plugin_slug,
-                array($this,'display_plugin_admin_page'),
-                $this->plugin_icon
-                );
-
-            // Default menu items
-            //
-            $menuItems = array(
-                array(
-                    'label'             => __('General Settings', WPG_PLUGIN),
-                    'slug'              => $this->plugin_slug,
-                    'class'             => $this,
-                    'function'          => 'display_plugin_admin_page'
-                )
-            );
-
-            // Third class plugin add-ons
-            //
+			// Get all menu items
+            $menuItems = array();
             $menuItems = apply_filters('add_wp_graphviz_menu_items', $menuItems);
 
-            // Attach Menu Items To Sidebar and Top Nav
-            //
-            foreach ($menuItems as $menuItem) {
+			// Check the number of submenu_pages to add
+			$this->debugMP('msg','WP GraphViz Admin page add_plugin_admin_menu', 'Count(menuItems)=' . count($menuItems) . '...',__FILE__,__LINE__);
+			if (count($menuItems) == 1) {
+				$this->debugMP('pr','WP GraphViz Admin page add_plugin_admin_menu menuItems',$menuItems,__FILE__,__LINE__);
+				// The main hook for the menu
+				//
+				//$menuitem = $menuItems[0];
+				global $WP_GraphViz_Shortcodes;
+				add_menu_page(
+					$this->page_title,
+					$this->menu_title,									//$menuItem['label'],
+					$this->capability,
+					$this->plugin_slug,									//$menuItem['slug'],
+					array($WP_GraphViz_Shortcodes,'render_options'),	//array($menuItem['class'],$menuItem['function']),
+					$this->plugin_icon
+				);
+				
+			} else {
+				
+				// The main hook for the menu
+				//
+				add_menu_page(
+					$this->page_title,
+					$this->menu_title,
+					$this->capability,
+					$this->plugin_slug,
+					array($this,'display_plugin_admin_page'),
+					$this->plugin_icon
+				);
 
-                // Using class names (or objects)
-                //
-                if (isset($menuItem['class'])) {
-                    add_submenu_page(
-                        $this->plugin_slug,
-                        $menuItem['label'],
-                        $menuItem['label'],
-                        $this->capability,
-                        $menuItem['slug'],
-                        array($menuItem['class'],$menuItem['function'])
-                        );
+				// Attach Menu Items To Sidebar and Top Nav
+				//
+				foreach ($menuItems as $menuItem) {
 
-                // Full URL or plain function name
-                //
-                } else {
-                    add_submenu_page(
-                        $this->plugin_slug,
-                        $menuItem['label'],
-                        $menuItem['label'],
-                        $this->capability,
-                        $menuItem['url']
-                        );
-                }
-            }
+					// Using class names (or objects)
+					//
+					if (isset($menuItem['class'])) {
+						add_submenu_page(
+							$this->plugin_slug,
+							$menuItem['label'],
+							$menuItem['label'],
+							$this->capability,
+							$menuItem['slug'],
+							array($menuItem['class'],$menuItem['function'])
+							);
 
-            // Remove the duplicate menu entry
-            //
-            //remove_submenu_page($this->plugin->prefix, $this->plugin->prefix);
+					// Full URL or plain function name
+					//
+					} else {
+						add_submenu_page(
+							$this->plugin_slug,
+							$menuItem['label'],
+							$menuItem['label'],
+							$this->capability,
+							$menuItem['url']
+							);
+					}
+				}
+			}
+
         }
     }
 
@@ -311,34 +276,7 @@ class WP_GraphViz_Plugin {
 	 *
 	 * @since    0.1.0
 	 */
-	public function plugin_page_init() {		
-        register_setting( 'wp_graphviz_option_group', 'wp_graphviz_options', array( $this, 'check_wp_graphviz_option' ) );
-            
-		add_settings_section(
-			'wp_graphviz_section_id',
-			__('General Settings', WPG_PLUGIN),
-			array( $this, 'print_general_section_info' ),
-			'wp-graphviz-setting-admin'
-		);
-
-		add_settings_field(
-			'wp_graphviz_id', 
-			__('WP GraphViz ID', WPG_PLUGIN),
-			array( $this, 'create_wp_graphviz_id_field' ), 
-			'wp-graphviz-setting-admin',
-			'wp_graphviz_section_id',
-			array( 'label_for' => 'wp_graphviz_id', 'field' => 'wp_graphviz_id' )
-		);
-
-		add_settings_field(
-			'wp_graphviz_title',
-			__('WP GraphViz Title', WPG_PLUGIN),
-			array( $this, 'create_wp_graphviz_title_field' ),
-			'wp-graphviz-setting-admin',
-			'wp_graphviz_section_id',
-			array( 'label_for' => 'wp_graphviz_title', 'field' => 'wp_graphviz_title' )
-		);
-
+	public function plugin_page_init() {
 		$this->debugMP('msg','WP GraphViz Admin page plugin_page_init',WP_GRAPHVIZ_BASENAME . '/lang/',__FILE__,__LINE__);
     }
 
@@ -349,32 +287,6 @@ class WP_GraphViz_Plugin {
 	 */
 	public function display_plugin_admin_page() {
 		include_once( WP_GRAPHVIZ_DIR . '/views/admin.php' );
-	}
-
-	/**
-	 * NOTE:  Actions are points in the execution of a page or process
-	 *        lifecycle that WordPress fires.
-	 *
-	 *        WordPress Actions: http://codex.wordpress.org/Plugin_API#Actions
-	 *        Action Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
-	 *
-	 * @since    0.1.0
-	 */
-	public function action_method_name() {
-		// TODO: Define your action hook callback here
-	}
-
-	/**
-	 * NOTE:  Filters are points of execution in which WordPress modifies data
-	 *        before saving it or sending it to the browser.
-	 *
-	 *        WordPress Filters: http://codex.wordpress.org/Plugin_API#Filters
-	 *        Filter Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
-	 *
-	 * @since    0.1.0
-	 */
-	public function filter_method_name() {
-		// TODO: Define your filter hook callback here
 	}
 
     /**

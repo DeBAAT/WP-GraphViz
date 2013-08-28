@@ -22,3 +22,16 @@ function wpg_update_option($option_key = '', $option_value = '') {
 	}
 	return update_option('wp_graphviz_options', $wp_graphviz_options);
 }
+
+function wpg_string_to_bool($value) {
+	if ($value == true || $value == 'true' || $value == 'TRUE' || $value == '1') {
+		return true;
+	}
+	else if ($value == false || $value == 'false' || $value == 'FALSE' || $value == '0') {
+		return false;
+	}
+	else {
+		return $value;
+	}
+}
+

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP-GraphViz v0.1.0\n"
 "Report-Msgid-Bugs-To: http://www.de-baat.nl/WP_Graphviz\n"
 "POT-Creation-Date: 2013-08-24 11:37+0100\n"
-"PO-Revision-Date: 2013-08-28 16:54:41+0000\n"
+"PO-Revision-Date: 2013-08-28 22:15:04+0000\n"
 "Last-Translator: De BAAT <De_BAAT@de-baat.nl>\n"
 "Language-Team: De B.A.A.T. <WP_GraphViz@de-baat.nl>\n"
 "MIME-Version: 1.0\n"
@@ -20,74 +20,36 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes"
 
-#: classes/class-wp-graphviz-plugin.php:263
-#: classes/class-wp-graphviz-plugin.php:319
-#@ wp-graphviz
-msgid "General Settings"
-msgstr "Algemene Instellingen"
-
-#: classes/class-wp-graphviz-plugin.php:326
-#@ wp-graphviz
-msgid "WP GraphViz ID"
-msgstr "WP GraphViz ID"
-
-#: classes/class-wp-graphviz-plugin.php:335
-#@ wp-graphviz
-msgid "WP GraphViz Title"
-msgstr "WP GraphViz Titel"
-
-#: classes/class-wp-graphviz-shortcodes - kopie.php:101
-#: classes/class-wp-graphviz-shortcodes.php:102
+#: classes/class-wp-graphviz-shortcodes.php:75
 #@ wp-graphviz
 msgid "The basic shortcode to render a graph specified in the DOT language."
 msgstr "De basis shortcode die gebruikt kan worden om een graph te tekenen die gespecificeerd is in de DOT taal."
 
-#: classes/class-wp-graphviz-shortcodes - kopie.php:107
-#: classes/class-wp-graphviz-shortcodes.php:114
-#@ wp-graphviz
-msgid "The shortcode to render a file containing the graph specified in the DOT language."
-msgstr "De shortcode om een bestand te tekenen die een specificatie van een graph bevat in de DOT taal."
-
-#: classes/class-wp-graphviz-shortcodes.php:30
+#: classes/class-wp-graphviz-shortcodes.php:23
 #@ wp-graphviz
 msgid "WP GraphViz Shortcodes"
 msgstr "WP GraphViz Shortcodes"
 
-#: classes/class-wp-graphviz-shortcodes.php:137
+#: classes/class-wp-graphviz-shortcodes.php:97
 #@ wp-graphviz
 msgid "Welcome to WP GraphViz Shortcodes"
 msgstr "Welkom bij de WP GraphViz Shortcodes"
 
-#: classes/class-wp-graphviz-shortcodes.php:141
+#: classes/class-wp-graphviz-shortcodes.php:101
 #@ wp-graphviz
 msgid "Your Settings have been saved."
 msgstr "Uw Instellingen zijn opgeslagen."
 
-#: classes/class-wp-graphviz-shortcodes.php:146
+#: classes/class-wp-graphviz-shortcodes.php:106
 #@ wp-graphviz
 msgid "This page shows the shortcodes provided by the WP GraphViz plugin:"
 msgstr "Deze pagina toont de shortcodes die geleverd worden door deze WP GraphViz plug-in:"
 
-#: classes/class-wp-graphviz-shortcodes.php:175
+#: classes/class-wp-graphviz-shortcodes.php:135
 #, php-format
 #@ wp-graphviz
 msgid "For usage information see <a href=\"%s\">here</a>."
 msgstr "Voor informatie over het gebruik kijk <a href=\"%s\">hier</a>."
-
-#: classes/class-wp-graphviz-shortcodes.php:180
-#@ wp-graphviz
-msgid "Shortcode Settings"
-msgstr "Shortcode Instellingen"
-
-#: classes/class-wp-graphviz-shortcodes.php:182
-#@ wp-graphviz
-msgid "Ad Hoc Widgets"
-msgstr "Ad Hoc Widgets"
-
-#: classes/class-wp-graphviz-shortcodes.php:108
-#@ wp-graphviz
-msgid "The extended shortcode to render a graph specified in the DOT language."
-msgstr "De uitgebreide shortcode om een graph te renderen die gespecificeerd is in de DOT taal."
 
 #. translators: plugin header field 'Name'
 #: wp-graphviz.php:0
@@ -124,4 +86,19 @@ msgstr "http://www.de-baat.nl/WP_Graphviz"
 #@ wp-graphviz
 msgid "0.1.0"
 msgstr "0.1.0"
+
+#: classes/class-wp-graphviz-plugin.php:193
+#@ wp-graphviz
+msgid "Enter your general settings below:"
+msgstr "Geef je algemene instellingen hieronder:"
+
+#: classes/class-wp-graphviz-shortcodes.php:114
+#@ wp-graphviz
+msgid "Description"
+msgstr "Beschrijving"
+
+#: classes/class-wp-graphviz-shortcodes.php:216
+#@ wp-graphviz
+msgid "<h4>DOT specification for graph id = "
+msgstr "<h4>DOT specificatie voor graph id = "
 

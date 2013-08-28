@@ -1,60 +1,56 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userids)
-Donate link: http://example.com/
-Tags: comments, spam
-Requires at least: 3.5.1
+Contributors: DeBAAT
+Donate link: http://www.de-baat.nl/WP_Graphviz
+Tags: graphviz, network, diagram, graph, dot, neato, twopi, circo, fdp, visualisation, visualization, layout, hierarchical
+Requires at least: 3.6
 Tested up to: 3.6
 Stable tag: 0.1.0
-License: GPLv2 or later
+License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+A plugin to provide GraphViz functionality for WordPress sites.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+[GraphViz](http://www.graphviz.org/) is a powerful tool for visualising network and tree structures that connect objects.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and Markdown parsed.
+This WordPress plugin provides a shortcode mechanism to create GraphViz graphics within blogs, using the shortcode mechanism.
 
-A few notes about the sections above:
+It's working is based on the viz.js code as provided by Mike Daines:
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+	https://github.com/mdaines/viz.js
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+Special thanks goes to chrisy as author of TFO Graphviz, e.g. for providing the inspiration for this readme:
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+	http://wordpress.org/plugins/tfo-graphviz/
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
 
-e.g.
-
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
+1. Upload `wp-graphviz.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Use shortcode `[wp_graphviz]<dot code>[/wp_graphviz]` in your posts or pages
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= What is GraphViz? =
 
-An answer to that question.
+[GraphViz](http://www.graphviz.org/) is a way of generating visualisations of structural relationships between objects.
+Almost any kind of diagram where something _connects_ to something else can be drawn and automatically laid out using the DOT language.
 
-= What about foo bar? =
+= How do I use this plugin? =
 
-Answer to foo bar dilemma.
+Use the `[wp_graphviz]` shortcode. Various uses are explained in the "_How to use_" section.
+
+= How do I write DOT? =
+
+The online documentation for [GraphViz](http://www.graphviz.org/) is terse and not especially helpful, 
+in particular the [DOT language](http://www.graphviz.org/doc/info/lang.html) page is only helpful if you happen to be able to read an approximation of [BNF](http://en.wikipedia.org/wiki/Backus%E2%80%93Naur_Form).
+
+There are however several other introductions to Graphviz and DOT, including [an excerpt on the O'Reilly LinuxDevCenter.com site](http://linuxdevcenter.com/pub/a/linux/2004/05/06/graphviz_dot.html). 
+Another approach would be to look at the examples in the [Graphviz gallery](http://www.graphviz.org/Gallery.php).
+
+If in doubt, find an example and experiment with it.
 
 == Screenshots ==
 
@@ -66,48 +62,57 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
-
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+= 0.1.0 =
+* First version starting the plugin.
 
 == Upgrade Notice ==
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
+= 0.1.0 =
+As this is the first version, there is no upgrade info yet.
 
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
 
-== Arbitrary section ==
+== How to use WP GraphViz ==
 
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
+The shortcode syntax is:
 
-== A brief Markdown Example ==
+`
+[wp_graphviz <options>]
+ <DOT code>
+[/wp_graphviz]
+`
 
-Ordered list:
+Where `<options>` is anything from this list. All are entirely optional:
 
-1. Some feature
-1. Another feature
-1. Something else about the plugin
+* `id="`*&lt;id&gt;*`"`
 
-Unordered list:
+  Provides the identifier used to link the generated image to an image map. If you use the `simple` option then it also
+  provides the name of the generated DOT graph container (since GraphViz uses this to generate the image map). If not given
+  then an identifier is generated with the form `wp_graphviz_N` where *N* is an integer that starts at one when the plugin
+  is loaded and is incremented with use.
 
-* something
-* something else
-* third thing
+* `output="<png|gif|jpg|svg>"`
 
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
+  Indicates the desired image format. Defaults to `png`.
 
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
+* `simple="yes|no"`
 
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
+  The `simple` option provides a very basic DOT wrapper around your code such that the following is possible:
+ 
+  `
+  [wp_graphviz simple="yes"] a -> b -> c; [/wp_graphviz]
+  `
 
-`<?php code(); // goes in backticks ?>`
+  The generated code would look like:
+
+  `
+  digraph wp_graphviz_1 {
+      a -> b -> c;
+  }
+  `
+
+  See the `id` option for a description of where the name of the `digraph` comes from. `simple` defaults to `no`.
+
+* `title="`*&lt;title&gt;*`"`
+
+  Indicates the title of the image. This is used in the `alt` and `title` attributes of the image reference. This
+  defaults to an empty string. Note that image maps may indicate a `title` string which will appear in tool-tips.

@@ -10,6 +10,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 A plugin to provide GraphViz functionality for WordPress sites.
 
+Old version on BitBucket?
+
 == Description ==
 
 [GraphViz](http://www.graphviz.org/) is a powerful tool for visualising network and tree structures that connect objects.
